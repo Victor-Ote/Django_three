@@ -77,7 +77,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_three',
-        'USER': 'myuser',
+        'USER': 'postgres',
         'PASSWORD': 'mypassword',
         'HOST': 'localhost',
         'PORT': '5432',
