@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERP Básico</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="logo-icon">ERP</span>
+        <div>
+          <strong>Meu Sistema</strong>
+          <small>Gestão Comercial</small>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <button class="menu-item active" data-page="dashboard">Dashboard</button>
+        <button onclick="window.location.href='{% url 'product' %}'" class="menu-item">Produtos</button>
+        <button class="menu-item" data-page="clientes">Clientes</button>
+        <button class="menu-item" data-page="pedidos">Pedidos de Venda</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p>Seu ERP Prático e simples!</p>
+        </div>
+      </header>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </div>
+
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
