@@ -19,21 +19,16 @@
       </div>
 
       <nav class="sidebar-menu">
-        <button class="menu-item active" data-page="dashboard">Dashboard</button>
+        <button onclick="window.location.href='{% url 'index' %}'" class="menu-item" data-page="dashboard">Dashboard</button>
         <button onclick="window.location.href='{% url 'product' %}'" class="menu-item">Produtos</button>
-        <button class="menu-item" data-page="clientes">Clientes</button>
-        <button class="menu-item" data-page="pedidos">Pedidos de Venda</button>
+        <!-- <button onclick="window.location.href='{ url 'costumers' %}'" class="menu-item" >Clientes</button> -->
+        <!-- <button onclick="window.location.href='{ url 'order' %}'" class="menu-item" >Pedidos de Venda</button> -->
+        
       </nav>
     </aside>
 
     <main class="main">
-      <header class="topbar">
-        <button class="mobile-menu" id="mobileMenu">☰</button>
-        <div>
-          <h1 id="pageTitle">Dashboard</h1>
-          <p>Seu ERP Prático e simples!</p>
-        </div>
-      </header>
+     
       {% block content %}
       {% endblock %}
     </main>

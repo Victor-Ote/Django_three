@@ -1,4 +1,14 @@
-  <section class="content">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p>Seu ERP Prático e simples!</p>
+        </div>
+      </header>
+<section class="content">
         <section class="page active" id="dashboard">
           <div class="cards-grid">
             <article class="card">
@@ -85,7 +95,7 @@
             </div>
           </div>
         </section>    
-    
+{% endblock %}
     
     
     

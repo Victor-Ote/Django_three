@@ -111,7 +111,7 @@ body {
 }
 
 .page {
-  display: none;
+  display: block;
 }
 
 .page.active {

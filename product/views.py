@@ -11,5 +11,4 @@ class ProductListView(ListView):
     def dispatch(self, request, *args, **kwargs):
 
         print('Caiu para o App Product e está na view')
-
         return super().dispatch(request, *args, **kwargs) 
