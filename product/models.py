@@ -7,4 +7,4 @@ class Product(Base, models.Model):
     title = models.CharField('Title', max_length=100, blank=True)
     
     def __str__(self):
-        return self.product
+        return self.title

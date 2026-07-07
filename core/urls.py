@@ -3,7 +3,7 @@ from .views import IndexView
 
 
 urlpatterns = [
-    path("", IndexView.as_view(), name="index"),
+    path('', IndexView.as_view(), name="index"),
     path("products", include("product.urls")),
     # path('costumers', include('product.urls')),
     # path('order', include('product.urls')),
