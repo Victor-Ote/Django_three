@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from core.models import Product
+from product.models import Product
 
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
+from django.urls import reverse_lazy
 
 class ProductListView(ListView):
     model = Product
@@ -20,3 +21,9 @@ class ProductListView(ListView):
         context["total"] = Product.objects.count()
 
         return context
+    
+class ProductCreateView(CreateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('product:product')
+    template_name = 'create.html'

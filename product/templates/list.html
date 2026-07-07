@@ -8,7 +8,7 @@
               <h2>{{ title }}</h2>
               <p>Modelo de listagem para cadastro de produtos. Total de produtos: {{ total }}</p>
             </div>
-            <button class="btn primary" data-modal="modalProduto">Novo Produto</button>
+            <button onclick="window.location.href = '{% url 'product:create' %}'" class="btn primary" data-modal="modalProduto">Novo Produto</button>
           </div>
 
           <div class="filter-bar">
