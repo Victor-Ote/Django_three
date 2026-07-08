@@ -263,16 +263,6 @@ th {
   gap: 8px;
 }
 
-.actions button:first-child {
-  background: #e0f2fe;
-  color: #075985;
-}
-
-.actions button:last-child {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
 .modal {
   position: fixed;
   inset: 0;
