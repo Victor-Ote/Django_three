@@ -1,3 +1,5 @@
+from urllib import request
+
 from django.shortcuts import render
 from django.views.generic import  ListView, CreateView, UpdateView, DeleteView
 
@@ -9,7 +11,11 @@ class ClientListView(ListView):
     context_object_name = "client"
     template_name = 'clientList.html'
     
-
-    def dispatch(self, request, *args, **kwargs):
-        print('Entrou ma View do client ', request.method)
-        return super().dispatch(request, *args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['total'] = Client.objects.count()
+        context['title'] = 'Clientes'
+        return context
+    
+class ClientCreateView(CreateView):
+    model = Client
