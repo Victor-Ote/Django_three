@@ -2,6 +2,7 @@ from urllib import request
 
 from django.shortcuts import render
 from django.views.generic import  ListView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from client.models import Client
 
@@ -19,3 +20,11 @@ class ClientListView(ListView):
     
 class ClientCreateView(CreateView):
     model = Client
+    fields = '__all__'
+    success_url = reverse_lazy('client:client')
+    template_name = 'clientsCreate.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Criar Cliente'
+        return context

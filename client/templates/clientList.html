@@ -2,15 +2,52 @@
 {% load static %}
 {% block content %}
 <section class="page" id="clients">
-    <div class="page-actions">
-        <div>
-            <h2>{{ title }}</h2>
-            <p>Modelo de listagem para cadastro de clientes. Total de clientes: {{ total }}</p>
-        </div>
-        <button onclick="window.location.href = '{% url 'client:create' %}'" class="btn primary"
-            data-modal="modalCliente">Novo Cliente</button>
+  <div class="page-actions">
+    <div>
+      <h2>{{ title }}</h2>
+      <p>Modelo de listagem para cadastro de clientes. Total de clientes: {{ total }}</p>
     </div>
+    <button onclick="window.location.href = '{% url 'client:create' %}'" class="btn primary"
+      data-modal="modalCliente">Novo Cliente</button>
+  </div>
 
+  <div class="filter-bar">
+    <input type="text" placeholder="Buscar por código ou produto..." />
+  </div>
+
+  <div class="panel">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF/CNPJ</th>
+          <th>Número</th>
+          <th>Cidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in client %}
+        <tr>
+          <td>{{ c.name }}</td>
+          <td> <a href="#">
+              {{ c.doc_number }}</a>
+          </td>
+          <td>{{ c.phone }}</td>
+          <td>{{ c.city }}</td>
+          <td class="actions">
+            <button onclick="window.location.href = '#'">Editar</button>
+
+            <form method="post" action="#" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
+              {% csrf_token %}
+              <button type="submit" class="badge danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </section>
 
 
