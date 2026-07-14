@@ -28,3 +28,7 @@ class ClientCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Criar Cliente'
         return context
+    
+class ClientDeleteView(DeleteView):
+    model = Client
+    success_url = reverse_lazy('client:client')
