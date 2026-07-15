@@ -32,3 +32,9 @@ class ClientCreateView(CreateView):
 class ClientDeleteView(DeleteView):
     model = Client
     success_url = reverse_lazy('client:client')
+    
+class ClientUpdateView(UpdateView):
+    model = Client
+    fields = '__all__'
+    success_url = reverse_lazy('client:client')
+    template_name = 'clientsCreate.html'

@@ -29,14 +29,14 @@
       <tbody>
         {% for c in client %}
         <tr>
-          <td>{{ c.name }}</td>
-          <td> <a href="#">
+          <td><a href="{% url 'client:update' c.id %}">{{ c.name }}</a></td>
+          <td> 
               {{ c.doc_number }}</a>
           </td>
           <td>{{ c.phone }}</td>
           <td>{{ c.city }}</td>
           <td class="actions">
-            <button onclick="window.location.href = '#'">Editar</button>
+            <button onclick="window.location.href = '{% url 'client:update' c.id %}'">Editar</button>
 
             <form method="post" action="{% url 'client:delete' c.id %}" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
               {% csrf_token %}
